@@ -19,4 +19,5 @@ namespace Lab_1
             Application.Run(new Form1());
         }
     }
+       
 }
