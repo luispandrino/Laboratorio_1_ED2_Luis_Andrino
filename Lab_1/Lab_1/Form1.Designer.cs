@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lblResultado = new System.Windows.Forms.Label();
@@ -40,14 +41,16 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnAgregarLista = new System.Windows.Forms.Button();
-            this.CHLSTcanciones = new System.Windows.Forms.CheckedListBox();
+            this.chkduracion = new System.Windows.Forms.CheckBox();
+            this.btnduracion = new System.Windows.Forms.Button();
+            this.chknombre = new System.Windows.Forms.CheckBox();
+            this.btnOrdenar = new System.Windows.Forms.Button();
             this.btnMostrarLista = new System.Windows.Forms.Button();
             this.lstMusica = new System.Windows.Forms.ListBox();
-            this.btnOrdenar = new System.Windows.Forms.Button();
-            this.chknombre = new System.Windows.Forms.CheckBox();
-            this.btnduracion = new System.Windows.Forms.Button();
-            this.chkduracion = new System.Windows.Forms.CheckBox();
+            this.btnAgregarLista = new System.Windows.Forms.Button();
+            this.CHLSTcanciones = new System.Windows.Forms.CheckedListBox();
+            this.lstTiempo = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,6 +60,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -77,7 +81,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(377, 284);
+            this.tabPage1.Size = new System.Drawing.Size(511, 284);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Agregar musica";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -161,6 +165,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lstTiempo);
             this.tabPage2.Controls.Add(this.chkduracion);
             this.tabPage2.Controls.Add(this.btnduracion);
             this.tabPage2.Controls.Add(this.chknombre);
@@ -176,6 +181,64 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Crear Play-List";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chkduracion
+            // 
+            this.chkduracion.AutoSize = true;
+            this.chkduracion.Location = new System.Drawing.Point(331, 144);
+            this.chkduracion.Name = "chkduracion";
+            this.chkduracion.Size = new System.Drawing.Size(159, 17);
+            this.chkduracion.TabIndex = 7;
+            this.chkduracion.Text = "ascendiente / descendiente";
+            this.chkduracion.UseVisualStyleBackColor = true;
+            // 
+            // btnduracion
+            // 
+            this.btnduracion.Location = new System.Drawing.Point(145, 138);
+            this.btnduracion.Name = "btnduracion";
+            this.btnduracion.Size = new System.Drawing.Size(137, 23);
+            this.btnduracion.TabIndex = 6;
+            this.btnduracion.Text = "Ordenar por duracion";
+            this.btnduracion.UseVisualStyleBackColor = true;
+            this.btnduracion.Click += new System.EventHandler(this.btnduracion_Click);
+            // 
+            // chknombre
+            // 
+            this.chknombre.AutoSize = true;
+            this.chknombre.Location = new System.Drawing.Point(331, 105);
+            this.chknombre.Name = "chknombre";
+            this.chknombre.Size = new System.Drawing.Size(159, 17);
+            this.chknombre.TabIndex = 5;
+            this.chknombre.Text = "ascendiente / descendiente";
+            this.chknombre.UseVisualStyleBackColor = true;
+            // 
+            // btnOrdenar
+            // 
+            this.btnOrdenar.Location = new System.Drawing.Point(145, 101);
+            this.btnOrdenar.Name = "btnOrdenar";
+            this.btnOrdenar.Size = new System.Drawing.Size(137, 23);
+            this.btnOrdenar.TabIndex = 4;
+            this.btnOrdenar.Text = "Ordenar por nombre ";
+            this.btnOrdenar.UseVisualStyleBackColor = true;
+            this.btnOrdenar.Click += new System.EventHandler(this.btnOrdenar_Click);
+            // 
+            // btnMostrarLista
+            // 
+            this.btnMostrarLista.Location = new System.Drawing.Point(331, 47);
+            this.btnMostrarLista.Name = "btnMostrarLista";
+            this.btnMostrarLista.Size = new System.Drawing.Size(147, 23);
+            this.btnMostrarLista.TabIndex = 3;
+            this.btnMostrarLista.Text = "Mostrar Lista";
+            this.btnMostrarLista.UseVisualStyleBackColor = true;
+            this.btnMostrarLista.Click += new System.EventHandler(this.btnMostrarLista_Click);
+            // 
+            // lstMusica
+            // 
+            this.lstMusica.FormattingEnabled = true;
+            this.lstMusica.Location = new System.Drawing.Point(135, 183);
+            this.lstMusica.Name = "lstMusica";
+            this.lstMusica.Size = new System.Drawing.Size(167, 95);
+            this.lstMusica.TabIndex = 2;
             // 
             // btnAgregarLista
             // 
@@ -195,62 +258,23 @@
             this.CHLSTcanciones.Size = new System.Drawing.Size(120, 274);
             this.CHLSTcanciones.TabIndex = 0;
             // 
-            // btnMostrarLista
+            // lstTiempo
             // 
-            this.btnMostrarLista.Location = new System.Drawing.Point(331, 47);
-            this.btnMostrarLista.Name = "btnMostrarLista";
-            this.btnMostrarLista.Size = new System.Drawing.Size(147, 23);
-            this.btnMostrarLista.TabIndex = 3;
-            this.btnMostrarLista.Text = "Mostrar Lista";
-            this.btnMostrarLista.UseVisualStyleBackColor = true;
-            this.btnMostrarLista.Click += new System.EventHandler(this.btnMostrarLista_Click);
+            this.lstTiempo.FormattingEnabled = true;
+            this.lstTiempo.Location = new System.Drawing.Point(322, 183);
+            this.lstTiempo.Name = "lstTiempo";
+            this.lstTiempo.Size = new System.Drawing.Size(183, 95);
+            this.lstTiempo.TabIndex = 8;
             // 
-            // lstMusica
+            // tabPage3
             // 
-            this.lstMusica.FormattingEnabled = true;
-            this.lstMusica.Location = new System.Drawing.Point(135, 183);
-            this.lstMusica.Name = "lstMusica";
-            this.lstMusica.Size = new System.Drawing.Size(355, 95);
-            this.lstMusica.TabIndex = 2;
-            // 
-            // btnOrdenar
-            // 
-            this.btnOrdenar.Location = new System.Drawing.Point(145, 101);
-            this.btnOrdenar.Name = "btnOrdenar";
-            this.btnOrdenar.Size = new System.Drawing.Size(137, 23);
-            this.btnOrdenar.TabIndex = 4;
-            this.btnOrdenar.Text = "Ordenar por nombre ";
-            this.btnOrdenar.UseVisualStyleBackColor = true;
-            this.btnOrdenar.Click += new System.EventHandler(this.btnOrdenar_Click);
-            // 
-            // chknombre
-            // 
-            this.chknombre.AutoSize = true;
-            this.chknombre.Location = new System.Drawing.Point(331, 105);
-            this.chknombre.Name = "chknombre";
-            this.chknombre.Size = new System.Drawing.Size(159, 17);
-            this.chknombre.TabIndex = 5;
-            this.chknombre.Text = "ascendiente / descendiente";
-            this.chknombre.UseVisualStyleBackColor = true;
-            // 
-            // btnduracion
-            // 
-            this.btnduracion.Location = new System.Drawing.Point(145, 138);
-            this.btnduracion.Name = "btnduracion";
-            this.btnduracion.Size = new System.Drawing.Size(137, 23);
-            this.btnduracion.TabIndex = 6;
-            this.btnduracion.Text = "Ordenar por duracion";
-            this.btnduracion.UseVisualStyleBackColor = true;
-            // 
-            // chkduracion
-            // 
-            this.chkduracion.AutoSize = true;
-            this.chkduracion.Location = new System.Drawing.Point(331, 144);
-            this.chkduracion.Name = "chkduracion";
-            this.chkduracion.Size = new System.Drawing.Size(159, 17);
-            this.chkduracion.TabIndex = 7;
-            this.chkduracion.Text = "ascendiente / descendiente";
-            this.chkduracion.UseVisualStyleBackColor = true;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(511, 284);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Repoductor";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -258,8 +282,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 322);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SpotyMy";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -291,6 +316,8 @@
         private System.Windows.Forms.Button btnduracion;
         private System.Windows.Forms.CheckBox chknombre;
         private System.Windows.Forms.Button btnOrdenar;
+        private System.Windows.Forms.ListBox lstTiempo;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 

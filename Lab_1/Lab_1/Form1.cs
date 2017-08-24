@@ -19,6 +19,7 @@ namespace Lab_1
         string LlaveABuscar = "";
 
         List<Cancion> PlayList = new List<Cancion>();
+        List<Cancion> Tiempo = new List<Cancion>();
         public Form1()
         {
             InitializeComponent();
@@ -79,7 +80,8 @@ namespace Lab_1
         {
             for (int i = 0; i < PlayList.Count; i++)
             {
-                lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
+                lstMusica.Items.Insert(i, PlayList[i].Nombre);
+                lstTiempo.Items.Insert(i, PlayList[i].Tiempo);
             }
         }
 
@@ -87,19 +89,49 @@ namespace Lab_1
         {
             if (chknombre.Checked)
             {
+                PlayList.Sort((q, p) => string.Compare(p.Nombre, q.Nombre));
+                lstMusica.Items.Clear();
+                for (int i = 0; i < PlayList.Count; i++)
+                {
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre);
 
+                }
             }
             else
             {
-
-                PlayList.Sort();
+                PlayList.Sort((p, q) => string.Compare(p.Nombre, q.Nombre));
+                lstMusica.Items.Clear();
                 for (int i = 0; i < PlayList.Count; i++)
                 {
-                    lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre);
+            
                 }
-
-
             }
+        }
+
+        private void btnduracion_Click(object sender, EventArgs e)
+        {
+            if (chkduracion.Checked)
+            {
+                PlayList.Sort((q, p) => string.Compare(p.Tiempo, q.Tiempo));
+                lstTiempo.Items.Clear();
+                for (int i = 0; i < PlayList.Count; i++)
+                {
+                    lstTiempo.Items.Insert(i, PlayList[i].Tiempo);
+
+                }
+            }
+            else
+            {
+                PlayList.Sort((p, q) => string.Compare(p.Tiempo, q.Tiempo));
+                lstTiempo.Items.Clear();
+                for (int i = 0; i < PlayList.Count; i++)
+                {
+                    lstTiempo.Items.Insert(i, PlayList[i].Tiempo);
+
+                }
+            }
+
         }
     }
 }
