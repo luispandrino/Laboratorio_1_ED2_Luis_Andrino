@@ -40,8 +40,17 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAgregarLista = new System.Windows.Forms.Button();
+            this.CHLSTcanciones = new System.Windows.Forms.CheckedListBox();
+            this.btnMostrarLista = new System.Windows.Forms.Button();
+            this.lstMusica = new System.Windows.Forms.ListBox();
+            this.btnOrdenar = new System.Windows.Forms.Button();
+            this.chknombre = new System.Windows.Forms.CheckBox();
+            this.btnduracion = new System.Windows.Forms.Button();
+            this.chkduracion = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -51,7 +60,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(385, 310);
+            this.tabControl1.Size = new System.Drawing.Size(519, 310);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -152,25 +161,110 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.chkduracion);
+            this.tabPage2.Controls.Add(this.btnduracion);
+            this.tabPage2.Controls.Add(this.chknombre);
+            this.tabPage2.Controls.Add(this.btnOrdenar);
+            this.tabPage2.Controls.Add(this.btnMostrarLista);
+            this.tabPage2.Controls.Add(this.lstMusica);
+            this.tabPage2.Controls.Add(this.btnAgregarLista);
+            this.tabPage2.Controls.Add(this.CHLSTcanciones);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(377, 284);
+            this.tabPage2.Size = new System.Drawing.Size(511, 284);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Crear Play-List";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarLista
+            // 
+            this.btnAgregarLista.Location = new System.Drawing.Point(145, 47);
+            this.btnAgregarLista.Name = "btnAgregarLista";
+            this.btnAgregarLista.Size = new System.Drawing.Size(147, 23);
+            this.btnAgregarLista.TabIndex = 1;
+            this.btnAgregarLista.Text = "Agregar a la lista ";
+            this.btnAgregarLista.UseVisualStyleBackColor = true;
+            this.btnAgregarLista.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // CHLSTcanciones
+            // 
+            this.CHLSTcanciones.FormattingEnabled = true;
+            this.CHLSTcanciones.Location = new System.Drawing.Point(9, 7);
+            this.CHLSTcanciones.Name = "CHLSTcanciones";
+            this.CHLSTcanciones.Size = new System.Drawing.Size(120, 274);
+            this.CHLSTcanciones.TabIndex = 0;
+            // 
+            // btnMostrarLista
+            // 
+            this.btnMostrarLista.Location = new System.Drawing.Point(331, 47);
+            this.btnMostrarLista.Name = "btnMostrarLista";
+            this.btnMostrarLista.Size = new System.Drawing.Size(147, 23);
+            this.btnMostrarLista.TabIndex = 3;
+            this.btnMostrarLista.Text = "Mostrar Lista";
+            this.btnMostrarLista.UseVisualStyleBackColor = true;
+            this.btnMostrarLista.Click += new System.EventHandler(this.btnMostrarLista_Click);
+            // 
+            // lstMusica
+            // 
+            this.lstMusica.FormattingEnabled = true;
+            this.lstMusica.Location = new System.Drawing.Point(135, 183);
+            this.lstMusica.Name = "lstMusica";
+            this.lstMusica.Size = new System.Drawing.Size(355, 95);
+            this.lstMusica.TabIndex = 2;
+            // 
+            // btnOrdenar
+            // 
+            this.btnOrdenar.Location = new System.Drawing.Point(145, 101);
+            this.btnOrdenar.Name = "btnOrdenar";
+            this.btnOrdenar.Size = new System.Drawing.Size(137, 23);
+            this.btnOrdenar.TabIndex = 4;
+            this.btnOrdenar.Text = "Ordenar por nombre ";
+            this.btnOrdenar.UseVisualStyleBackColor = true;
+            this.btnOrdenar.Click += new System.EventHandler(this.btnOrdenar_Click);
+            // 
+            // chknombre
+            // 
+            this.chknombre.AutoSize = true;
+            this.chknombre.Location = new System.Drawing.Point(331, 105);
+            this.chknombre.Name = "chknombre";
+            this.chknombre.Size = new System.Drawing.Size(159, 17);
+            this.chknombre.TabIndex = 5;
+            this.chknombre.Text = "ascendiente / descendiente";
+            this.chknombre.UseVisualStyleBackColor = true;
+            // 
+            // btnduracion
+            // 
+            this.btnduracion.Location = new System.Drawing.Point(145, 138);
+            this.btnduracion.Name = "btnduracion";
+            this.btnduracion.Size = new System.Drawing.Size(137, 23);
+            this.btnduracion.TabIndex = 6;
+            this.btnduracion.Text = "Ordenar por duracion";
+            this.btnduracion.UseVisualStyleBackColor = true;
+            // 
+            // chkduracion
+            // 
+            this.chkduracion.AutoSize = true;
+            this.chkduracion.Location = new System.Drawing.Point(331, 144);
+            this.chkduracion.Name = "chkduracion";
+            this.chkduracion.Size = new System.Drawing.Size(159, 17);
+            this.chkduracion.TabIndex = 7;
+            this.chkduracion.Text = "ascendiente / descendiente";
+            this.chkduracion.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 322);
+            this.ClientSize = new System.Drawing.Size(520, 322);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -189,6 +283,14 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckedListBox CHLSTcanciones;
+        private System.Windows.Forms.Button btnAgregarLista;
+        private System.Windows.Forms.Button btnMostrarLista;
+        private System.Windows.Forms.ListBox lstMusica;
+        private System.Windows.Forms.CheckBox chkduracion;
+        private System.Windows.Forms.Button btnduracion;
+        private System.Windows.Forms.CheckBox chknombre;
+        private System.Windows.Forms.Button btnOrdenar;
     }
 }
 

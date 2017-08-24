@@ -18,6 +18,7 @@ namespace Lab_1
         Cancion CancionPorBuscar = null;
         string LlaveABuscar = "";
 
+        List<Cancion> PlayList = new List<Cancion>();
         public Form1()
         {
             InitializeComponent();
@@ -26,12 +27,15 @@ namespace Lab_1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int i = 0;
             if (Musica.ContainsKey(txtNombre.Text.ToLower()) == false)
             {
                 CancionPorAgregar = new Cancion(txtNombre.Text.ToLower(), txtTiempo.Text.ToLower());
                 Musica.Add(CancionPorAgregar.Nombre, CancionPorAgregar);
                 txtNombre.Clear();
                 txtTiempo.Clear();
+
+                CHLSTcanciones.Items.Insert(i, CancionPorAgregar.Nombre);
             }
             else
             {
@@ -56,6 +60,46 @@ namespace Lab_1
             }
 
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+           
+            for (int i = 0; i < CHLSTcanciones.Items.Count; i++)
+            {
+                if (CHLSTcanciones.GetItemChecked(i))
+                {
+                    CancionPorBuscar = Musica[CHLSTcanciones.Items[i].ToString()];
+                    PlayList.Add(CancionPorBuscar);
+                }
+            }
+        }
+
+        private void btnMostrarLista_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < PlayList.Count; i++)
+            {
+                lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
+            }
+        }
+
+        private void btnOrdenar_Click(object sender, EventArgs e)
+        {
+            if (chknombre.Checked)
+            {
+
+            }
+            else
+            {
+
+                PlayList.Sort();
+                for (int i = 0; i < PlayList.Count; i++)
+                {
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
+                }
+
+
+            }
         }
     }
 }
