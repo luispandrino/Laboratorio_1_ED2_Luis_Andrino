@@ -74,6 +74,10 @@ namespace Lab_1
                     PlayList.Add(CancionPorBuscar);
                 }
             }
+            for (int i = 0; i < PlayList.Count; i++)
+            {
+                comboBoxCanciones.Items.Add(PlayList[i].Nombre);
+            }
         }
 
         private void btnMostrarLista_Click(object sender, EventArgs e)
@@ -132,6 +136,13 @@ namespace Lab_1
                 }
             }
 
+        }
+
+        private void BtnReproducir_Click(object sender, EventArgs e)
+        {
+            string URLcancion = "https://www.youtube.com/results?search_query="+ comboBoxCanciones.Text;
+            WBMusica.Navigate(URLcancion);
+            URLcancion = "";
         }
     }
 }
