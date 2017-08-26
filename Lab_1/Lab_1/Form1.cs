@@ -20,6 +20,11 @@ namespace Lab_1
 
         List<Cancion> PlayList = new List<Cancion>();
         List<Cancion> Tiempo = new List<Cancion>();
+
+
+        bool play = false;
+        string[] ArchivosMP3;
+        string[] RutasArchivosMp3; 
         public Form1()
         {
             InitializeComponent();
@@ -29,12 +34,13 @@ namespace Lab_1
         private void button1_Click(object sender, EventArgs e)
         {
             int i = 0;
-            if (Musica.ContainsKey(txtNombre.Text.ToLower()) == false)
+            if (Musica.ContainsKey(txtNombre.Text) == false)
             {
-                CancionPorAgregar = new Cancion(txtNombre.Text.ToLower(), txtTiempo.Text.ToLower());
+                CancionPorAgregar = new Cancion(txtNombre.Text, txtTiempo.Text, txtArtista.Text);
                 Musica.Add(CancionPorAgregar.Nombre, CancionPorAgregar);
                 txtNombre.Clear();
                 txtTiempo.Clear();
+                txtArtista.Clear();
 
                 CHLSTcanciones.Items.Insert(i, CancionPorAgregar.Nombre);
             }
@@ -74,18 +80,15 @@ namespace Lab_1
                     PlayList.Add(CancionPorBuscar);
                 }
             }
-            for (int i = 0; i < PlayList.Count; i++)
-            {
-                comboBoxCanciones.Items.Add(PlayList[i].Nombre);
-            }
+
         }
 
         private void btnMostrarLista_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < PlayList.Count; i++)
             {
-                lstMusica.Items.Insert(i, PlayList[i].Nombre);
-                lstTiempo.Items.Insert(i, PlayList[i].Tiempo);
+                lstMusica.Items.Insert(i, PlayList[i].Nombre+ ", " + PlayList[i].Tiempo);
+               
             }
         }
 
@@ -97,7 +100,7 @@ namespace Lab_1
                 lstMusica.Items.Clear();
                 for (int i = 0; i < PlayList.Count; i++)
                 {
-                    lstMusica.Items.Insert(i, PlayList[i].Nombre);
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
 
                 }
             }
@@ -107,7 +110,7 @@ namespace Lab_1
                 lstMusica.Items.Clear();
                 for (int i = 0; i < PlayList.Count; i++)
                 {
-                    lstMusica.Items.Insert(i, PlayList[i].Nombre);
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
             
                 }
             }
@@ -118,20 +121,20 @@ namespace Lab_1
             if (chkduracion.Checked)
             {
                 PlayList.Sort((q, p) => string.Compare(p.Tiempo, q.Tiempo));
-                lstTiempo.Items.Clear();
+                lstMusica.Items.Clear();
                 for (int i = 0; i < PlayList.Count; i++)
                 {
-                    lstTiempo.Items.Insert(i, PlayList[i].Tiempo);
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
 
                 }
             }
             else
             {
                 PlayList.Sort((p, q) => string.Compare(p.Tiempo, q.Tiempo));
-                lstTiempo.Items.Clear();
+                lstMusica.Items.Clear();
                 for (int i = 0; i < PlayList.Count; i++)
                 {
-                    lstTiempo.Items.Insert(i, PlayList[i].Tiempo);
+                    lstMusica.Items.Insert(i, PlayList[i].Nombre + ", " + PlayList[i].Tiempo);
 
                 }
             }
@@ -140,9 +143,30 @@ namespace Lab_1
 
         private void BtnReproducir_Click(object sender, EventArgs e)
         {
-            string URLcancion = "https://www.youtube.com/results?search_query="+ comboBoxCanciones.Text;
-            WBMusica.Navigate(URLcancion);
-            URLcancion = "";
+
+        }
+
+        private void btnadjuntar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog CajadeBusqueda = new OpenFileDialog();
+            CajadeBusqueda.Multiselect = true;
+            if (CajadeBusqueda.ShowDialog()== DialogResult.OK)
+            {
+                ArchivosMP3 = CajadeBusqueda.SafeFileNames;
+                RutasArchivosMp3 = CajadeBusqueda.FileNames;
+                foreach (var ArchivoMP3 in ArchivosMP3)
+                {
+                    lstReproductor.Items.Add(ArchivoMP3);
+                }
+                Reproductor.URL = RutasArchivosMp3[0];
+                lstReproductor.SelectedIndex = 0;
+
+            }
+        }
+
+        private void lstReproductor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Reproductor.URL = RutasArchivosMp3[lstReproductor.SelectedIndex];
         }
     }
 }

@@ -10,10 +10,12 @@ namespace Lab_1
     {
        public String Nombre;
        public  String Tiempo;
-       public Cancion(string NombreCancion, string TiempoCancion)
+        public string Artista;
+       public Cancion(string NombreCancion, string TiempoCancion, string ArtistaCancion)
         {
             Nombre = NombreCancion;
             Tiempo = TiempoCancion;
+            Artista = ArtistaCancion;
         }
     }
 }
