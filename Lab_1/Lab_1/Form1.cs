@@ -12,17 +12,18 @@ namespace Lab_1
 {
     public partial class Form1 : Form
     {
-
+        //Declaracion de diccionario y variables de ayuda
         Dictionary<string, Cancion> Musica = new Dictionary<string, Cancion>();
         Cancion CancionPorAgregar = null;
         Cancion CancionPorBuscar = null;
         string LlaveABuscar = "";
 
+        //listas de canciones y tiempo para generar el playlist.
         List<Cancion> PlayList = new List<Cancion>();
         List<Cancion> Tiempo = new List<Cancion>();
 
 
-        bool play = false;
+        //arreglos de canciones tipo mp3 para el reproductor 
         string[] ArchivosMP3;
         string[] RutasArchivosMp3; 
         public Form1()
@@ -30,7 +31,11 @@ namespace Lab_1
             InitializeComponent();
         }
         
-
+        /// <summary>
+        /// metodo para agregar canciones al diccionario 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -51,7 +56,11 @@ namespace Lab_1
 
 
         }
-
+        /// <summary>
+        /// metodo para busqueda en el diccionario 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             LlaveABuscar = txtBuscar.Text;
@@ -68,7 +77,11 @@ namespace Lab_1
 
 
         }
-
+        /// <summary>
+        /// Agrega a la lista las canciones 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
            
@@ -82,7 +95,11 @@ namespace Lab_1
             }
 
         }
-
+        /// <summary>
+        /// Metodo para mostrar la lista de canciones seleccionada 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrarLista_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < PlayList.Count; i++)
@@ -91,9 +108,14 @@ namespace Lab_1
                
             }
         }
-
+        /// <summary>
+        /// metodo de ordenacion de canciones por nombre 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrdenar_Click(object sender, EventArgs e)
         {
+            //check box si esta activo sera descendiente 
             if (chknombre.Checked)
             {
                 PlayList.Sort((q, p) => string.Compare(p.Nombre, q.Nombre));
@@ -115,9 +137,14 @@ namespace Lab_1
                 }
             }
         }
-
+        /// <summary>
+        /// metodo de ordenamiento de canciones por duracion 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnduracion_Click(object sender, EventArgs e)
         {
+            //check box si esta activo sera descendiente 
             if (chkduracion.Checked)
             {
                 PlayList.Sort((q, p) => string.Compare(p.Tiempo, q.Tiempo));
@@ -141,11 +168,11 @@ namespace Lab_1
 
         }
 
-        private void BtnReproducir_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// metodo para levantar caja de seleccion de musica y guarda datos en arreglos 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnadjuntar_Click(object sender, EventArgs e)
         {
             OpenFileDialog CajadeBusqueda = new OpenFileDialog();
@@ -162,7 +189,11 @@ namespace Lab_1
 
             }
         }
-
+       /// <summary>
+       /// controlador de seleccion en la lista para reproducir musica 
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void lstReproductor_SelectedIndexChanged(object sender, EventArgs e)
         {
             Reproductor.URL = RutasArchivosMp3[lstReproductor.SelectedIndex];
