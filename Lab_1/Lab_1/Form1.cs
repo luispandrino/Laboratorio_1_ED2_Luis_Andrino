@@ -158,8 +158,7 @@ namespace Lab_1
                 {
                     lstReproductor.Items.Add(ArchivoMP3);
                 }
-                Reproductor.URL = RutasArchivosMp3[0];
-                lstReproductor.SelectedIndex = 0;
+                
 
             }
         }

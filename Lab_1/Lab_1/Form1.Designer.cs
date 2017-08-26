@@ -80,6 +80,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.Gray;
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.txtArtista);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -90,13 +91,13 @@
             this.tabPage1.Controls.Add(this.txtTiempo);
             this.tabPage1.Controls.Add(this.txtNombre);
             this.tabPage1.Controls.Add(this.BtnAgregar);
+            this.tabPage1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(657, 437);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Agregar musica";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Text = "Registrar musica";
             // 
             // label6
             // 
@@ -110,9 +111,10 @@
             // 
             // txtArtista
             // 
+            this.txtArtista.BackColor = System.Drawing.Color.DarkGray;
             this.txtArtista.Location = new System.Drawing.Point(10, 177);
             this.txtArtista.Name = "txtArtista";
-            this.txtArtista.Size = new System.Drawing.Size(144, 20);
+            this.txtArtista.Size = new System.Drawing.Size(144, 21);
             this.txtArtista.TabIndex = 11;
             // 
             // groupBox1
@@ -150,6 +152,7 @@
             // 
             // txtBuscar
             // 
+            this.txtBuscar.BackColor = System.Drawing.Color.DarkGray;
             this.txtBuscar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscar.Location = new System.Drawing.Point(60, 59);
             this.txtBuscar.Name = "txtBuscar";
@@ -197,16 +200,18 @@
             // 
             // txtTiempo
             // 
+            this.txtTiempo.BackColor = System.Drawing.Color.DarkGray;
             this.txtTiempo.Location = new System.Drawing.Point(10, 115);
             this.txtTiempo.Name = "txtTiempo";
-            this.txtTiempo.Size = new System.Drawing.Size(144, 20);
+            this.txtTiempo.Size = new System.Drawing.Size(144, 21);
             this.txtTiempo.TabIndex = 2;
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.DarkGray;
             this.txtNombre.Location = new System.Drawing.Point(10, 37);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(144, 20);
+            this.txtNombre.Size = new System.Drawing.Size(144, 21);
             this.txtNombre.TabIndex = 1;
             // 
             // BtnAgregar
@@ -222,6 +227,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.Gray;
             this.tabPage2.Controls.Add(this.chkduracion);
             this.tabPage2.Controls.Add(this.btnduracion);
             this.tabPage2.Controls.Add(this.chknombre);
@@ -236,7 +242,6 @@
             this.tabPage2.Size = new System.Drawing.Size(657, 437);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Crear Play-List";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // chkduracion
             // 
@@ -295,10 +300,11 @@
             // 
             // lstMusica
             // 
+            this.lstMusica.BackColor = System.Drawing.Color.DarkGray;
             this.lstMusica.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMusica.FormattingEnabled = true;
             this.lstMusica.ItemHeight = 20;
-            this.lstMusica.Location = new System.Drawing.Point(135, 188);
+            this.lstMusica.Location = new System.Drawing.Point(135, 192);
             this.lstMusica.Name = "lstMusica";
             this.lstMusica.Size = new System.Drawing.Size(242, 224);
             this.lstMusica.TabIndex = 2;
@@ -318,6 +324,7 @@
             // 
             // CHLSTcanciones
             // 
+            this.CHLSTcanciones.BackColor = System.Drawing.Color.DarkGray;
             this.CHLSTcanciones.FormattingEnabled = true;
             this.CHLSTcanciones.Location = new System.Drawing.Point(9, 7);
             this.CHLSTcanciones.Name = "CHLSTcanciones";
@@ -326,6 +333,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.DimGray;
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.btnadjuntar);
             this.tabPage3.Controls.Add(this.lstReproductor);
@@ -336,12 +344,11 @@
             this.tabPage3.Size = new System.Drawing.Size(657, 437);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Repoductor";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnadjuntar
             // 
             this.btnadjuntar.Image = ((System.Drawing.Image)(resources.GetObject("btnadjuntar.Image")));
-            this.btnadjuntar.Location = new System.Drawing.Point(6, 169);
+            this.btnadjuntar.Location = new System.Drawing.Point(8, 169);
             this.btnadjuntar.Name = "btnadjuntar";
             this.btnadjuntar.Size = new System.Drawing.Size(182, 244);
             this.btnadjuntar.TabIndex = 6;
@@ -351,6 +358,7 @@
             // 
             // lstReproductor
             // 
+            this.lstReproductor.BackColor = System.Drawing.Color.DarkGray;
             this.lstReproductor.FormattingEnabled = true;
             this.lstReproductor.Location = new System.Drawing.Point(212, 175);
             this.lstReproductor.Name = "lstReproductor";
